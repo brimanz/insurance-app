@@ -42,6 +42,16 @@ const Button = styled.button`
 	}
 `;
 
+const Error = styled.div`
+	background-color: rgba(255, 0 , 0, 0.15);
+	color: #f5f5f5;
+	padding: 1rem;
+	width: 100%;
+	text-align: center;
+	margin: 0 0 2rem -1rem;
+	border-radius: 4px;
+`;
+
 
 const Form = () =>{
 
@@ -51,9 +61,10 @@ const Form = () =>{
 		plan: ""
 	});
 
+	const [error, guardarError] = useState(false);
+
 	//data extract
 	const {marca, year, plan} = datos;
-
 
 	//reading form data
 	const obtenerInformacion = e =>{
@@ -63,9 +74,41 @@ const Form = () =>{
 		});
 	}
 
+	//submit form
+	const cotizarSeguro = e =>{
+		e.preventDefault();
+
+		if(marca.trim() === "" || year.trim() === "" || plan.trim() === ""){
+			guardarError(true);
+			return;
+		}
+
+		guardarError(false);
+
+
+		//diference of years
+
+		//year -3%
+
+		//america 15%
+		//europe 30%
+		//asia 5%
+
+
+		//basic +20%
+		//complete +50%
+
+
+		//total
+	}
+
 
 	return(
-		<form>
+		<form
+			onSubmit={cotizarSeguro}
+		>
+
+			{error ? <Error>Debe llenar todos los campos</Error> : null}
 			<Area>
 				<Label>Marca</Label>
 				<Select
@@ -121,7 +164,7 @@ const Form = () =>{
 				/> Completo				
 			</Area>
 
-			<Button type="button">Cotizar</Button>
+			<Button type="submit">Cotizar</Button>
 		</form>
 
 	)
