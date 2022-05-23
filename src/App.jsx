@@ -6,6 +6,7 @@ import './index.css';
 import Header from './components/Header';
 import Form from './components/Form';
 import Resumen from './components/Resumen';
+import Resultado from './components/Resultado';
 
 import styled from '@emotion/styled';
 
@@ -37,8 +38,7 @@ const App = () =>{
   });
 
   //data extract
-  const {datos} = resumen;
-
+  const {cotizacion, datos} = resumen;
 
 
   return(
@@ -54,6 +54,10 @@ const App = () =>{
 
         <Resumen
           datos={datos}
+        />
+
+        <Resultado
+          cotizacion={cotizacion}
         />
       </FormContainer>
     </Container>

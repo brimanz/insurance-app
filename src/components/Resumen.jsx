@@ -4,13 +4,17 @@ import {letraMayuscula} from '../helper';
 
 
 const ResumenContainer = styled.div`
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 	padding: 1rem;
 	text-align: center;
 	color: #f5f5f5;
 	margin-top: 1rem;
 `
 
-
+const ListElement = styled.li`
+	margin: 1rem;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+`;
 
 
 const Resumen = ({datos}) =>{
@@ -23,15 +27,15 @@ const Resumen = ({datos}) =>{
 		<ResumenContainer>
 			<h2>Resumen de Cotización</h2>
 			<ul>
-				<li>
-					Marca seleccionada: {letraMayuscula(marca)}
-				</li>
-				<li>
-					Año del Automovil: {year}
-				</li>
-				<li>
-					Plan seleccionado: {letraMayuscula(plan)}
-				</li>
+				<ListElement>
+					<strong>Marca seleccionada:</strong> {letraMayuscula(marca)}
+				</ListElement>
+				<ListElement>
+					<strong>Año del Automovil:</strong> {year}
+				</ListElement>
+				<ListElement>
+					<strong>Plan seleccionado:</strong> {letraMayuscula(plan)}
+				</ListElement>
 			</ul>
 		</ResumenContainer>
 	);
