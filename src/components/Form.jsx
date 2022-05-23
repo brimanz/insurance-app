@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
-
+import {obtenerDiferenciaYear, calcularMarca} from '../helper';
 
 const Area = styled.div`
 	display: flex;
@@ -85,14 +85,22 @@ const Form = () =>{
 
 		guardarError(false);
 
+		//money base
+		let resultado = 2000;
 
-		//diference of years
+
+
+		//years diference
+		const diferencia = obtenerDiferenciaYear(year);
 
 		//year -3%
+		resultado -= ((diferencia * 3) * resultado) / 100;
 
 		//america 15%
 		//europe 30%
 		//asia 5%
+		resultado = calcularMarca(marca)* resultado;
+		console.log(resultado)
 
 
 		//basic +20%
@@ -131,6 +139,8 @@ const Form = () =>{
 					onChange={obtenerInformacion}
 				>
 					<option value="">-- Select --</option>
+					<option value="2024">2024</option>
+					<option value="2023">2023</option>
 					<option value="2022">2022</option>
 					<option value="2021">2021</option>
 					<option value="2020">2020</option>
