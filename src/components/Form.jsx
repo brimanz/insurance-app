@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
-import {obtenerDiferenciaYear, calcularMarca} from '../helper';
+import {obtenerDiferenciaYear, calcularMarca, calcularPlan} from '../helper';
 
 const Area = styled.div`
 	display: flex;
@@ -88,25 +88,21 @@ const Form = () =>{
 		//money base
 		let resultado = 2000;
 
-
-
 		//years diference
 		const diferencia = obtenerDiferenciaYear(year);
 
 		//year -3%
 		resultado -= ((diferencia * 3) * resultado) / 100;
+		//console.log(resultado)
 
-		//america 15%
-		//europe 30%
-		//asia 5%
-		resultado = calcularMarca(marca)* resultado;
-		console.log(resultado)
+		//america 15% europe 30% asia 5%
+		resultado = calcularMarca(marca) * resultado;
+		//console.log(resultado)
 
-
-		//basic +20%
-		//complete +50%
-
-
+		//basic +20% complete +50%
+		const incrementoPlan = calcularPlan(plan);
+		resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
+		console.log(resultado);
 		//total
 	}
 

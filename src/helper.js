@@ -28,3 +28,24 @@ export function calcularMarca(marca){
 
 	return incremento;
 }
+
+
+//total paid for plan
+export function calcularPlan(plan){
+	let incrementoPlan;
+
+	switch(plan){
+		case 'basico':
+			incrementoPlan = 1.20;
+			break;
+
+		case 'completo':
+			incrementoPlan = 1.50;
+			break;
+
+		default:
+			break;	
+	}
+
+	return incrementoPlan;
+}
