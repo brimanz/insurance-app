@@ -53,7 +53,7 @@ const Error = styled.div`
 `;
 
 
-const Form = () =>{
+const Form = ({guardarResumen}) =>{
 
 	const [datos, guardarDatos] = useState({
 		marca: "",
@@ -103,7 +103,15 @@ const Form = () =>{
 		const incrementoPlan = calcularPlan(plan);
 		resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
 		console.log(resultado);
+		
 		//total
+		guardarResumen({
+			cotizacion: resultado,
+			datos
+		});
+
+
+
 	}
 
 

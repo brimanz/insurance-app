@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css';
 
 
 //components import
 import Header from './components/Header';
 import Form from './components/Form';
-
+import Resumen from './components/Resumen';
 
 import styled from '@emotion/styled';
 
@@ -26,6 +26,21 @@ const FormContainer = styled.div`
 
 
 const App = () =>{
+
+  const [resumen, guardarResumen] = useState({
+    cotizacion: 0,
+    datos:{
+      marca: "",
+      year: "",
+      plan: ""
+    }
+  });
+
+  //data extract
+  const {datos} = resumen;
+
+
+
   return(
     <Container>
       <Header
@@ -33,7 +48,13 @@ const App = () =>{
       />
 
       <FormContainer>
-        <Form/>
+        <Form 
+          guardarResumen={guardarResumen}
+        />
+
+        <Resumen
+          datos={datos}
+        />
       </FormContainer>
     </Container>
   );

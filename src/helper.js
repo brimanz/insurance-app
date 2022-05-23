@@ -49,3 +49,9 @@ export function calcularPlan(plan){
 
 	return incrementoPlan;
 }
+
+
+//shows the first capital letter
+export function letraMayuscula(texto){
+	return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
